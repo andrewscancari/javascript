@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="pt-br" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FetchApi Example</title> 
+
+    <!-- If you put this inside a css file will do loader just shows when css file is fully loaded -->
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px !important;
+        }
+
+        .loader {
+            border: 6px solid #f3f3f3; /* Light grey */
+            border-top: 6px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            box-sizing: border-box;
+
+            position: fixed;
+            top: 45%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            transform: -webkit-translate(-50%, -50%);
+            transform: -moz-translate(-50%, -50%);
+            transform: -ms-translate(-50%, -50%);
+        }
+        .loaderBackground {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+         window.onload = function() {
+            $('#welcomeLoader').fadeOut(200);
+            $('#rootElement').fadeIn(200);
+        };
+    </script>
+</head>
+<body>
+    <div id="welcomeLoader" class="loaderBackground">
+        <div class="loader"></div>
+    </div>
+
+    <div id="rootElement" style="display: none;">
+        <div class="container mt-3">
+            <div class="d-flex flex-column mb-3">
+                <div class="form-group">
+                    <label for="register_cep">CEP</label>
+                    <input ng-model="userdata.cep" id="register_cep" class="form-control cep" type="text" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="register_street">Rua</label>
+                    <input ng-model="userdata.street" id="register_street" class="form-control" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register_street_number">Numero</label>
+                    <input ng-model="userdata.street_number" id="register_street_number" class="form-control" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register_district">Bairro</label>
+                    <input ng-model="userdata.district" id="register_district" class="form-control" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register_state">Estado</label>
+                    <input ng-model="userdata.state" id="register_state" class="form-control" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="register_city">Cidade</label>
+                    <input ng-model="userdata.city" id="register_city" class="form-control" type="text" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap-4.3.1.min.css">
+    <link rel="stylesheet" href="css/fontawesome-5.7.0-all.css">
+
+    <!-- jQuery Slim - Bootstrap just need the slim port of jquery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <!-- JQuery Mask Plugin -->
+    <script src="js/jquery.mask-1.14.15.min.js"></script>
+
+    <!-- Bootstrap requires -->
+    <script src="js/poepper-1.14.7.min.js"></script>
+    <script src="js/bootstrap-4.3.1.min.js"></script>
+</body>
+</html>
